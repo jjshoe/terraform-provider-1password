@@ -254,7 +254,7 @@ func (o *OnePassClient) SignIn() error {
 
 	session, err := cmd.CombinedOutput()
 	if err != nil {
-		return errors.New(fmt.Sprintf("Cannot signin: %s", err))
+		return errors.New(fmt.Sprintf("Cannot signin: %s\nError code: %s", string(session), err))
 	}
 
 	o.Session = string(session)
